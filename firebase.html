@@ -95,6 +95,25 @@
 
         function findData() {
 
+            //database refernce
+            const dbref = ref(db);
+
+            //getting data from the database
+            get(child(dbref, "People/" + findID.value)) // getting value of the findID field
+            .then((snapshot) => {
+                
+                // checks and prints the data only if it is available in the firebase server
+                if (snapshot.exists()) {
+                    findName.innerHTML = "Name: " + snapshot.val().Name;
+                    findAge.innerHTML = "Age: " + snapshot.val().Age;
+                } 
+
+                // if it fails this begins to execute
+                else{
+                    alert("No data found");
+                }
+                
+            })
         }
 
         function updateData() {
