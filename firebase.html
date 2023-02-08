@@ -81,6 +81,16 @@
                 ID: enterID.value,
                 Age: enterAge.value
             })
+
+            // we are creating a arrow function which tells the users if the data is added. Else the catch function runs
+            .then(()=>{
+                alert("Data added succesfully !")
+            })
+
+            // captures any error that occurs if the arrow function fails
+            .catch((error) => {
+                alert(error)
+            })
         }
 
         function findData() {
